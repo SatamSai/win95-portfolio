@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import Win95 from '../assets/Win95.ttf'
+import Win95 from '../assets/win95.ttf'
 import MsSans from '../assets/MsSans.ttf'
 import DigitalDismay from '../assets/digital-dismay.otf'
 
