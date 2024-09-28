@@ -41,7 +41,11 @@ export const InstallationActions = styled.div`
     justify-content:end;
 `
 
-export const ActionButton = styled.div`
+export const CheckIcon = styled.img`
+    height: 15px;
+`
+
+export const ActionButton = styled.button`
     width: 90px;
     height: 35px;
     border-top: 1.5px solid white;
@@ -53,6 +57,24 @@ export const ActionButton = styled.div`
     align-items: center;
     font-size: 12px;
     margin-right: 10px;
+    background: transparent;
+    &.active{
+        border-top: 1.5px solid black;
+        border-left: 1.5px solid black;
+        border-right: 1.5px solid white;
+        border-bottom: 1.5px solid white;
+    }
+
+    &.disabled {
+        border-top: 1.5px solid gray;
+        border-left: 1.5px solid gray;
+        border-right: 1.5px solid darkgray;
+        border-bottom: 1.5px solid darkgray;
+        color: darkgray;
+        background-color: #e0e0e0;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
 `
 
 export const InstalledItemsContainer = styled.div`
@@ -103,7 +125,10 @@ export const SubCategories = styled.ul`
 `
 
 export const SubCategoryItem = styled.li`
-margin-top: 5px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
 `
 
 export const Progress = styled.div`
