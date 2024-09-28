@@ -4,7 +4,7 @@ import { InstallationImg, InstallationInfo, InfoContent, Paragraph, Installation
 import InstallationImgUrl from '../../../assets/installation_img.png'
 import CheckIconUrl from '../../../assets/check.png'
 
-const BioDialog = ({ dialog, handleSelectDialog, handleDialogAction, handleCloseDialog }) => {
+const BioDialog = ({ dialog, handleSelectDialog, handleDialogAction, handleCloseDialog, setSetupComplete }) => {
 
     const [step, setStep] = useState(0)
     const [progress, setProgress] = useState(100)
@@ -137,6 +137,8 @@ const BioDialog = ({ dialog, handleSelectDialog, handleDialogAction, handleClose
                     extractedCount++;
 
                     const percentage = Math.floor((extractedCount / totalResources) * 100);
+                    if (percentage == 100)
+                        setSetupComplete(true)
                     setProgress(percentage);
 
                     extractResources();
@@ -157,11 +159,13 @@ const BioDialog = ({ dialog, handleSelectDialog, handleDialogAction, handleClose
     }, [installedSkills, extractedResources]);
 
     const handleSetNextStep = () => {
-        if (step < 3) {
+        if (step == 3) {
+            handleCloseDialog(dialog.id)
+            setSetupComplete(true)
+        }
+        else {
             setStep(step + 1)
         }
-        else
-            handleCloseDialog(dialog.id)
     }
 
     return (

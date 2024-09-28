@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { DialogLayer, GlobalStyle, IconsLayer, MainScreen, WinScreen } from './styles'
 import DraggableIcon from '../components/DraggableIcon'
 import TaskBar from '../components/TaskBar'
@@ -17,44 +17,13 @@ import MineSweeperDialog from '../components/Dialogs/MineSweeperDialog'
 import PdfViewer from '../components/Dialogs/PdfViewer'
 const Home = () => {
 
-    const [icons, setIcons] = useState([
-        {
-            id: 1,
-            iconImg: AboutMe,
-            label: "Profile Setup",
-            key: "bio"
-        },
-        {
-            id: 2,
-            iconImg: Resume,
-            label: "Resume",
-            key: "resume"
-        },
-        {
-            id: 3,
-            iconImg: Projects,
-            label: "Projects",
-            key: "projects"
-        },
-        {
-            id: 4,
-            iconImg: Projects,
-            label: "Experience",
-            key: "experience"
-        },
-        {
-            id: 6,
-            iconImg: MineSweeper,
-            label: "Mine Sweeper",
-            key: "minesweeper"
-        },
-        {
-            id: 7,
-            iconImg: Mail,
-            label: "Contact Me",
-            key: "contact"
-        }
-    ])
+
+    const [setupComplete, setSetupComplete] = useState(() => {
+        const storedData = localStorage.getItem('installed');
+        return storedData ? JSON.parse(storedData) : false;
+    });
+
+    const [icons, setIcons] = useState([])
 
     const dialogs = {
         bio: {
@@ -193,6 +162,55 @@ const Home = () => {
         }
     }
 
+    useEffect(() => {
+        const updatedIcons = [
+            {
+                id: 1,
+                iconImg: AboutMe,
+                label: "Profile Setup",
+                key: "bio",
+                show: true
+            },
+            {
+                id: 2,
+                iconImg: Resume,
+                label: "Resume",
+                key: "resume",
+                show: setupComplete
+            },
+            {
+                id: 3,
+                iconImg: Projects,
+                label: "Projects",
+                key: "projects",
+                show: setupComplete
+            },
+            {
+                id: 4,
+                iconImg: Projects,
+                label: "Experience",
+                key: "experience",
+                show: setupComplete
+            },
+            {
+                id: 6,
+                iconImg: MineSweeper,
+                label: "Mine Sweeper",
+                key: "minesweeper",
+                show: true
+            },
+            {
+                id: 7,
+                iconImg: Mail,
+                label: "Contact Me",
+                key: "contact",
+                show: true
+            }
+        ];
+        setIcons(updatedIcons);
+        localStorage.setItem('installed', setupComplete)
+    }, [setupComplete]);
+
     return (
         <WinScreen>
             <GlobalStyle />
@@ -209,7 +227,7 @@ const Home = () => {
                                             dialog.type == "mail" ?
                                                 <MailDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
                                                 dialog.type == "bio" ?
-                                                    <BioDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
+                                                    <BioDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} setSetupComplete={setSetupComplete} /> :
                                                     dialog.type == "minesweeper" ?
                                                         <MineSweeperDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
                                                         dialog.type == "pdf" ?
@@ -222,9 +240,10 @@ const Home = () => {
                 <IconsLayer>
                     {
                         icons.map(icon => {
-                            return (
-                                <DraggableIcon key={icon.id} icon={icon} handleOpenDialog={handleOpenDialog} />
-                            )
+                            if (icon.show)
+                                return (
+                                    <DraggableIcon key={icon.id} icon={icon} handleOpenDialog={handleOpenDialog} />
+                                )
                         })
                     }
                 </IconsLayer>
