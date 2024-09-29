@@ -22,9 +22,70 @@ export const StartButton = styled.div`
     height: 30px;
     border-top: 2px solid #ddd;
     border-left: 2px solid #ddd;
-    box-shadow: rgba(0, 0, 0, 1) 1px 1px 2px;
+    box-shadow: black 1px 1px 2px;
     cursor: default;
     margin-right: 30px;
+    &.pressed{
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    box-shadow: #ddd 1px 1px 2px;
+    }
+`
+
+export const StartOptionsContainer = styled.div`
+    position: absolute;
+    bottom: 42px;
+    left: 2px;
+    display: flex;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+    box-shadow: 0 0 0 1.5px white;
+    background-color:#7B7D7B;
+`
+
+export const LogoWrapper = styled.div`
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    width: 25px;
+`
+
+export const WindowsLogo = styled.img`
+    position: absolute;
+    bottom: 0px;
+    width:25px;
+`
+
+export const StartOptions = styled.div`
+`
+
+export const OptionsGroup = styled.div`
+    border-bottom: 1px solid black;
+`
+
+export const Option = styled.div`
+    padding: 10px;
+    font-size: 12px;
+    background-color: #C5C2C2;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    &:hover{
+        cursor: pointer;
+        background-color: #040D91;
+        color: white;
+    }
+    &::before{
+        position: absolute;
+        content: "_";
+        margin-left: 30px;
+    }
+`
+
+export const OptionImg = styled.img`
+    height: 25px;
+    margin-right: 5px;
+    border-radius:4px;
 `
 
 export const WindowIcon = styled.img`

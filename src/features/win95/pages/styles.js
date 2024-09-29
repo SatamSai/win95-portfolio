@@ -27,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Win95', sans-serif;
+    user-select: none;
   }
 `
 
