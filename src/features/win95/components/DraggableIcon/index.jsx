@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { DraggableIconContent, DraggableIconImg, DraggableIconLabel } from './DraggableIcon.styles'
 import MyComputer from '../../assets/MyComputer.png'
 import Draggable from 'react-draggable'
 
 const DraggableIcon = ({ icon, handleOpenDialog }) => {
+    const [lastTap, setLastTap] = useState(0);
+
+    const handleDoubleClickOrTap = (key) => {
+        const currentTime = new Date().getTime();
+        const tapGap = currentTime - lastTap;
+
+        if (tapGap < 300 && tapGap > 0) {
+            handleOpenDialog(key);
+        }
+        setLastTap(currentTime);
+    };
+
     return (
         <Draggable
             axis="both"
@@ -14,7 +26,7 @@ const DraggableIcon = ({ icon, handleOpenDialog }) => {
             scale={1}
             bounds="parent"
         >
-            <div className='handle' onDoubleClick={() => handleOpenDialog(icon.key)} style={{ width: "50px", marginBottom: "20px", display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div className='handle' onTouchStart={() => handleDoubleClickOrTap(icon.key)} onDoubleClick={() => handleOpenDialog(icon.key)} style={{ width: "50px", marginBottom: "20px", display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <DraggableIconImg draggable={false} src={icon.iconImg} />
                 <DraggableIconLabel>{icon.label}</DraggableIconLabel>
             </div>
