@@ -22,6 +22,7 @@ const Home = () => {
         const storedData = localStorage.getItem('installed');
         return storedData ? JSON.parse(storedData) : false;
     });
+    console.log(setupComplete)
 
     const [icons, setIcons] = useState([])
 
