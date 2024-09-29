@@ -9,6 +9,11 @@ export const Dialog = styled.div`
     padding: 2.5px 1px 1px 2.5px;
     box-sizing: border-box;
     z-index: 100000;
+
+    @media (max-width: 450px){
+        transform:scale(0.65);
+        transform-origin:top left;
+    }
 `
 
 export const DialogContent = styled.div`
@@ -16,6 +21,7 @@ export const DialogContent = styled.div`
     border-bottom: 1px solid black;
     height: 100%;
     width: 100%;
+
 `
 
 export const TitleBar = styled.div`

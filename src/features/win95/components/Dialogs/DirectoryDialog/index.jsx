@@ -108,6 +108,18 @@ const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handl
 
     const [currentDir, setCurrentDir] = useState(directories[dialog.key])
 
+    const [lastTap, setLastTap] = useState(0);
+
+    const handleDoubleClickOrTap = (key, value) => {
+        const currentTime = new Date().getTime();
+        const tapGap = currentTime - lastTap;
+
+        if (tapGap < 300 && tapGap > 0) {
+            handleFolderItemClick(key, value);
+        }
+        setLastTap(currentTime);
+    };
+
     const handleSelectSubFolder = (key, title, icon) => {
         const path = [...folderDepth]
         path.push({
@@ -181,7 +193,9 @@ const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handl
                     {
                         currentDir.subDirectories && Object.entries(currentDir.subDirectories).map(([key, value]) => {
                             return (
-                                <FolderItem onDoubleClick={() => handleFolderItemClick(key, value)}
+                                <FolderItem
+                                    onDoubleClick={() => handleFolderItemClick(key, value)}
+                                    onTouchStart={() => handleDoubleClickOrTap(key, value)}
                                 >
                                     <ItemIcon src={value.icon} />
                                     <ItemLabel>{value.title}</ItemLabel>

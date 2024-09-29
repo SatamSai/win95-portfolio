@@ -62,13 +62,13 @@ const DraggableDialog = (
                                 {dialogTitle}
                             </Title>
                             <WindowOptions>
-                                <WindowOption onClick={() => { dialog.selected && handleDialogAction(dialog.id) }} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+                                <WindowOption onTouchStart={() => { dialog.selected && handleDialogAction(dialog.id) }} onClick={() => { dialog.selected && handleDialogAction(dialog.id) }} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
                                     <WindowMinimize />
                                 </WindowOption>
-                                <WindowOption onClick={() => setIsMaximized(!isMaximized)} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+                                <WindowOption onTouchStart={() => setIsMaximized(!isMaximized)} onClick={() => setIsMaximized(!isMaximized)} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
                                     <WindowExpand />
                                 </WindowOption>
-                                <WindowOption onClick={() => handleCloseDialog(dialog.id)} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+                                <WindowOption onTouchStart={() => handleCloseDialog(dialog.id)} onClick={() => handleCloseDialog(dialog.id)} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
                                     <WindowClose >X</WindowClose>
                                 </WindowOption>
                             </WindowOptions>
