@@ -1,0 +1,64 @@
+{
+    "projects": [
+        {
+            "key": "learnBlockText",
+            "name": "Learnblock",
+            "version": "v1.0",
+            "release_date": "April 2022",
+            "description": "Learnblock is a simple, interactive web application that demonstrates the workings of blockchain technology. Users can visualize key concepts like block creation, hashing, and peer-to-peer networks in an easy-to-understand format.",
+            "requirements": [
+                "- A modern web browser (Chrome, Firefox, etc.)",
+                "- Internet connection"
+            ],
+            "installation": [
+                "1. Open the terminal or command prompt.",
+                "2. Clone the repository: git clone https://github.com/SatamSai/learnblock.git",
+                "3. Navigate to the directory: cd learnblock",
+                "4. Install dependencies: npm install",
+                "5. Run the application: npm start",
+                "6. Open your browser and visit: http://localhost:3000"
+            ],
+            "support": "For help or inquiries, email: support@learnblock.com"
+        },
+        {
+            "key": "movieBaseText",
+            "name": "MovieBase",
+            "version": "v1.0",
+            "release_date": "January 2022",
+            "description": "MovieBase is a dynamic web application for browsing movies and TV shows. It uses the TMDB API to show top-rated, trending, and upcoming titles, and includes features for searching specific content.",
+            "requirements": [
+                "- A modern web browser (Chrome, Firefox, etc.)",
+                "- Internet connection"
+            ],
+            "installation": [
+                "1. Open the terminal or command prompt.",
+                "2. Clone the repository: git clone https://github.com/SatamSai/moviebase.git",
+                "3. Navigate to the directory: cd moviebase",
+                "4. Install dependencies: npm install",
+                "5. Run the application: npm start",
+                "6. Open your browser and visit: http://localhost:3000"
+            ],
+            "support": "For help or inquiries, email: support@moviebase.com"
+        },
+        {
+            "key": "kanbanFlowText",
+            "name": "KanbanFlow",
+            "version": "v1.0",
+            "release_date": "December 2023",
+            "description": "KanbanFlow is a task management web application that allows users to create boards and tasks, manage roles, and provides JWT-based authentication. It is built using the MERN stack with secure APIs.",
+            "requirements": [
+                "- A modern web browser (Chrome, Firefox, etc.)",
+                "- Internet connection"
+            ],
+            "installation": [
+                "1. Open the terminal or command prompt.",
+                "2. Clone the repository: git clone https://github.com/SatamSai/kanbanflow.git",
+                "3. Navigate to the directory: cd kanbanflow",
+                "4. Install dependencies: npm install",
+                "5. Run the application: npm run dev",
+                "6. Open your browser and visit: http://localhost:3000"
+            ],
+            "support": "For help or inquiries, email: support@kanbanflow.com"
+        }
+    ]
+}

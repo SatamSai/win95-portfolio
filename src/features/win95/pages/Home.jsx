@@ -9,12 +9,14 @@ import Projects from '../assets/CloseFolder.png'
 import MineSweeper from '../assets/minesweepericon.png'
 import InternetExplorer from '../assets/internetExplorer.png'
 import Mail from '../assets/mail.png'
+import File from '../assets/file.png'
 import DirectoryDialog from '../components/Dialogs/DirectoryDialog'
 import BrowserDialog from '../components/Dialogs/BrowserDialog'
 import MailDialog from '../components/Dialogs/MailDialog'
 import BioDialog from '../components/Dialogs/BioDialog'
 import MineSweeperDialog from '../components/Dialogs/MineSweeperDialog'
 import PdfViewer from '../components/Dialogs/PdfViewer'
+import NotepadDialog from '../components/Dialogs/NotepadDialog'
 const Home = () => {
 
 
@@ -22,7 +24,6 @@ const Home = () => {
         const storedData = localStorage.getItem('installed');
         return storedData ? JSON.parse(storedData) : false;
     });
-    console.log(setupComplete)
 
     const [icons, setIcons] = useState([])
 
@@ -63,6 +64,21 @@ const Home = () => {
             title: "Internet Explorer",
             icon: InternetExplorer,
             url: "https://moviebase22.netlify.app/"
+        },
+        movieBaseText: {
+            type: "text",
+            title: "MovieBase.txt",
+            icon: File,
+        },
+        learnBlockText: {
+            type: "text",
+            title: "LearnBlock.txt",
+            icon: File,
+        },
+        kanbanFlowText: {
+            type: "text",
+            title: "KanbanFlow.txt",
+            icon: File,
         },
         learnBlockHtml: {
             type: "browser",
@@ -232,7 +248,9 @@ const Home = () => {
                                                     dialog.type == "minesweeper" ?
                                                         <MineSweeperDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
                                                         dialog.type == "pdf" ?
-                                                            <PdfViewer dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> : <></>
+                                                            <PdfViewer dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
+                                                            dialog.type == "text" ?
+                                                                <NotepadDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> : <></>
                                 }
                             </DialogLayer>
                         )

@@ -5,6 +5,7 @@ import ResumeIcon from '../../../assets/resume.png'
 import CaretDown from '../../../assets/caret-down.svg'
 import BackIcon from '../../../assets/back.png'
 import InternetExplorer from '../../../assets/internetExplorer.png'
+import File from '../../../assets/file.png'
 import { BackButton, CaretIcon, DropdownFolder, DropdownOptions, FolderContent, FolderDepthDropdown, FolderDepthDropdownContainer, FolderFooter, FolderIcon, FolderItem, FolderOptions, FolderViewOptions, Folders, ItemIcon, ItemLabel, ObjectsSize, SelectedObjects, SelectedOption } from './DirectoryDialog.styles'
 
 const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handleCloseDialog, handleOpenDialog }) => {
@@ -26,7 +27,7 @@ const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handl
             size: "80.05 MB",
             subDirectories: {
                 kanban: {
-                    title: "KanBan Board",
+                    title: "Kanban Board",
                     icon: Folder,
                     size: "50.05 MB",
                     subDirectories: {
@@ -36,7 +37,16 @@ const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handl
                             size: "50.05 MB",
                             action: () => handleOpenDialog("kanbanHtml"),
                             subDirectories: {}
-                        }
+                        },
+                        kanbanFlowText: {
+                            title: "Kanban.txt",
+                            icon: File,
+                            size: "50.05 MB",
+                            action: () => {
+                                handleOpenDialog("kanbanFlowText")
+                            },
+                            subDirectories: {}
+                        },
                     }
                 },
                 movieBase: {
@@ -52,7 +62,16 @@ const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handl
                                 handleOpenDialog("movieBaseHtml")
                             },
                             subDirectories: {}
-                        }
+                        },
+                        movieBaseText: {
+                            title: "MovieBase.txt",
+                            icon: File,
+                            size: "50.05 MB",
+                            action: () => {
+                                handleOpenDialog("movieBaseText")
+                            },
+                            subDirectories: {}
+                        },
                     }
                 },
                 learnBlock: {
@@ -60,13 +79,22 @@ const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handl
                     icon: Folder,
                     size: "30 MB",
                     subDirectories: {
-                        movieBaseHtml: {
+                        learnBlockHtml: {
                             title: "LearnBlock",
                             icon: InternetExplorer,
                             size: "50.05 MB",
                             action: () => handleOpenDialog("learnBlockHtml"),
                             subDirectories: {}
-                        }
+                        },
+                        learnBlockText: {
+                            title: "LearnBlock.txt",
+                            icon: File,
+                            size: "50.05 MB",
+                            action: () => {
+                                handleOpenDialog("learnBlockText")
+                            },
+                            subDirectories: {}
+                        },
                     }
                 }
             }

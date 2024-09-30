@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { DateTime, LeftContent, LogoWrapper, Option, OptionImg, OptionsGroup, Speaker, StartButton, StartOptions, StartOptionsContainer, Task, TaskBarContainer, TaskIcon, TaskTitle, Tasks, Tools, WindowIcon, WindowsLogo } from './Toolbar.styles'
+import { DateTime, LeftContent, LogoWrapper, Option, OptionImg, OptionsGroup, Speaker, StartButton, StartOptions, StartOptionsContainer, Task, TaskBarContainer, TaskIcon, TaskTitle, Tasks, TasksContainer, Tools, WindowIcon, WindowsLogo } from './Toolbar.styles'
 import WindowIconUrl from '../../assets/windowIcon.png'
 import SpeakerUrl from '../../assets/speaker.png'
 import WindowsLogoUrl from '../../assets/win95.png'
@@ -27,9 +27,9 @@ const TaskBar = ({ tasks, handleTaskBarItemClicked }) => {
                         </LogoWrapper>
                         <StartOptions>
                             <OptionsGroup>
-                                <Option><OptionImg src={InstagramIconUrl} />Instagram</Option>
-                                <Option><OptionImg src={GitHubIconUrl} />Github</Option>
-                                <Option><OptionImg src={LinkedinIconUrl} />LinkedIn</Option>
+                                <Option href='https://www.instagram.com/sainam_satam/'><OptionImg src={InstagramIconUrl} />Instagram</Option>
+                                <Option href='https://github.com/SatamSai' target="_blank" rel="noopener noreferrer"><OptionImg src={GitHubIconUrl} />Github</Option>
+                                <Option href='https://www.linkedin.com/in/sainam-satam-9722671b6/' target="_blank" rel="noopener noreferrer"><OptionImg src={LinkedinIconUrl} />LinkedIn</Option>
                                 <Option><OptionImg src={Resume} />Projects</Option>
                                 <Option><OptionImg src={Projects} />Resume</Option>
                             </OptionsGroup>
@@ -37,20 +37,22 @@ const TaskBar = ({ tasks, handleTaskBarItemClicked }) => {
                         </StartOptions>
                     </StartOptionsContainer>
                 }
-                <Tasks>
-                    {
-                        tasks.map(task => {
-                            return (
-                                <Task key={task.id} className={task.selected && "selected"} onClick={() => {
-                                    handleTaskBarItemClicked(task.id)
-                                }}>
-                                    <TaskIcon src={task.icon} />
-                                    <TaskTitle>{task.title}</TaskTitle>
-                                </Task>
-                            )
-                        })
-                    }
-                </Tasks>
+                <TasksContainer>
+                    <Tasks>
+                        {
+                            tasks.map(task => {
+                                return (
+                                    <Task key={task.id} className={task.selected && "selected"} onClick={() => {
+                                        handleTaskBarItemClicked(task.id)
+                                    }}>
+                                        <TaskIcon src={task.icon} />
+                                        <TaskTitle>{task.title}</TaskTitle>
+                                    </Task>
+                                )
+                            })
+                        }
+                    </Tasks>
+                </TasksContainer>
             </LeftContent>
             <Tools>
                 <Speaker src={SpeakerUrl} />

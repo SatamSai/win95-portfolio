@@ -77,13 +77,15 @@ export const OptionsGroup = styled.div`
     border-bottom: 1px solid black;
 `
 
-export const Option = styled.div`
+export const Option = styled.a`
     padding: 10px;
     font-size: 12px;
     background-color: #C5C2C2;
     display: flex;
     align-items: center;
     width: 150px;
+    text-decoration: none;
+    color: black;
     &:hover{
         cursor: pointer;
         background-color: #040D91;
@@ -107,12 +109,16 @@ export const WindowIcon = styled.img`
     margin-right: 4px;
 `
 
+export const TasksContainer = styled.div`
+width: calc(100vw - 200px);
+overflow: auto;
+`
+
 export const Tasks = styled.div`
     display: flex;
-    overflow:auto;
     @media (max-width: 450px){
         margin-left: -45px;
-    flex-grow: 1;
+        flex-grow: 1;
         :first-child{
             margin-left: 0px !important;
         }
