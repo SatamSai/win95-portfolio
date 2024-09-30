@@ -19,8 +19,8 @@ const PdfViewer = ({ dialog, handleSelectDialog, handleDialogAction, handleClose
             }}
         >
             <Actions>
-                <ActionButton><ActionButtonIcon src={DownloadIcon} />Download</ActionButton>
-                <ActionButton><ActionButtonIcon src={InternetExplorer} />Open new window</ActionButton>
+                <ActionButton href='https://drive.usercontent.google.com/uc?id=17DhPHQXCFXS_RXFId5PDAqn0mvucKrRN&export=download'><ActionButtonIcon src={DownloadIcon} />Download</ActionButton>
+                <ActionButton href='https://drive.google.com/file/d/17DhPHQXCFXS_RXFId5PDAqn0mvucKrRN/view?usp=drive_link' target="_blank" rel="noopener noreferrer"><ActionButtonIcon src={InternetExplorer} />Open new window</ActionButton>
             </Actions>
             <PdfWindow src="https://drive.google.com/file/d/17DhPHQXCFXS_RXFId5PDAqn0mvucKrRN/preview" allow="autoplay"></PdfWindow>
         </DraggableDialog>

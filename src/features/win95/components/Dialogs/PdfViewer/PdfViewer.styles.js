@@ -12,7 +12,7 @@ height: 13px;
 margin-right: 5px;
 `
 
-export const ActionButton = styled.div`
+export const ActionButton = styled.a`
 border-top: 2px solid #ddd;
 border-left: 2px solid #ddd;
 box-shadow: rgba(0, 0, 0, 1) 2px 2px 1.5px;

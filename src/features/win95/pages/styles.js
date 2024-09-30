@@ -28,12 +28,13 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Win95', sans-serif;
     user-select: none;
+    overflow: hidden;
   }
 `
 
 export const WinScreen = styled.div`
     background-color: #098684;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
 `
 
@@ -41,6 +42,9 @@ export const MainScreen = styled.div`
     position: relative;
     overflow: hidden;
     height: calc(100% - 40px);
+    @media (max-width:450px){
+        height: calc(100% - 35px);
+    }
 `
 
 export const DialogLayer = styled.div`
@@ -54,4 +58,7 @@ export const IconsLayer = styled.div`
     padding: 25px;
     height: 100%;
     width: 100%;
+    @media (max-width:450px){
+        padding: 15px;
+    }
 `

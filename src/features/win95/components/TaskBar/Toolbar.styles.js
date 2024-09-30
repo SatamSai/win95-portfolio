@@ -9,6 +9,10 @@ export const TaskBarContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0px 8px;
+    width: 100vw;
+    @media (max-width: 450px){
+        height: 35px;
+    }
 `
 export const LeftContent = styled.div`
     display: flex;
@@ -25,22 +29,32 @@ export const StartButton = styled.div`
     box-shadow: black 1px 1px 2px;
     cursor: default;
     margin-right: 30px;
+
     &.pressed{
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    box-shadow: #ddd 1px 1px 2px;
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+        box-shadow: #ddd 1px 1px 2px;
     }
+    @media (max-width: 450px){
+        transform: scale(0.7);
+        transform-origin: left;
+    }
+
 `
 
 export const StartOptionsContainer = styled.div`
     position: absolute;
-    bottom: 42px;
+    bottom: 36px;
     left: 2px;
     display: flex;
     border-bottom:1px solid black;
     border-right:1px solid black;
     box-shadow: 0 0 0 1.5px white;
     background-color:#7B7D7B;
+    @media (max-width: 450px){
+        transform: scale(0.7);
+        transform-origin: bottom left;
+    }
 `
 
 export const LogoWrapper = styled.div`
@@ -95,6 +109,14 @@ export const WindowIcon = styled.img`
 
 export const Tasks = styled.div`
     display: flex;
+    overflow:auto;
+    @media (max-width: 450px){
+        margin-left: -45px;
+    flex-grow: 1;
+        :first-child{
+            margin-left: 0px !important;
+        }
+    }
 `
 
 export const Task = styled.div`
@@ -120,6 +142,11 @@ export const Task = styled.div`
         border-right: 1px solid white;
         border-bottom: 1px solid white;
     }
+    @media (max-width: 450px){
+        margin-left: -45px;
+        transform: scale(0.7);
+        transform-origin: left;
+    }
 `
 
 export const TaskIcon = styled.img`
@@ -137,6 +164,10 @@ export const Tools = styled.div`
     align-items: center;
     padding: 5px;
     box-shadow: rgba(0, 0, 0, 1) 1px 1px 1px 0px inset,rgba(255, 255, 255, 1) 0px 0px 1px 1px inset;
+    @media (max-width: 450px){
+        transform: scale(0.7);
+        transform-origin: right;
+    }
 `
 
 export const Speaker = styled.img`
