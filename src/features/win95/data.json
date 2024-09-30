@@ -60,5 +60,6 @@
             ],
             "support": "For help or inquiries, email: support@kanbanflow.com"
         }
-    ]
+    ],
+    "packageJson": "{\n  \"name\": \"sainam-satam-skillset\",\n  \"version\": \"1.0.0\",\n  \"description\": \"A fun representation of my tech stack and skills!\",\n  \"author\": \"Sainam Satam\",\n  \"license\": \"MIT\",\n  \"scripts\": {\n    \"start\": \"unleash my coding power\",\n    \"build\": \"compile amazing projects\",\n    \"test\": \"debug with precision\"\n  },\n  \"dependencies\": {\n    \"frontend-skills\": {\n      \"HTML\": \"^5.0.0\",\n      \"CSS\": \"^3.0.0\",\n      \"Javascript\": \"^ES6.0.0\",\n      \"Typescript\": \"^4.0.0\",\n      \"Webpack\": \"^5.0.0\",\n      \"React\": \"^17.0.0\",\n      \"Redux\": \"^4.0.0\",\n      \"WebRTC\": \"^1.0.0\",\n      \"SCSS\": \"^1.0.0\",\n      \"Git\": \"^2.0.0\"\n    },\n    \"backend-skills\": {\n      \"NodeJs\": \"^14.0.0\",\n      \"ExpressJs\": \"^4.0.0\",\n      \"Mongoose\": \"^5.0.0\",\n      \"Restful API\": \"^1.0.0\",\n      \"JWT\": \"^8.0.0\",\n      \"Socket.io\": \"^4.0.0\",\n      \"Python\": \"^3.9.0\",\n      \"Django\": \"^3.2.0\"\n    },\n    \"blockchain-skills\": {\n      \"Solidity\": \"^0.8.17\",\n      \"Web3.js\": \"^1.8.0\",\n      \"Ethers.js\": \"^6.0.0\",\n      \"Moralis\": \"^1.0.0\",\n      \"Hardhat\": \"^2.12.0\",\n      \"Openzeppelin\": \"^4.9.0\",\n      \"Metamask\": \"^10.25.0\"\n    }\n  },\n  \"devDependencies\": {\n    \"coffee\": \"latest\",\n    \"creativity\": \"infinite\",\n    \"problem-solving\": \"infinity+1\"\n  }\n}"
 }

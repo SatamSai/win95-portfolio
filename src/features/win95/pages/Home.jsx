@@ -65,26 +65,36 @@ const Home = () => {
             icon: InternetExplorer,
             url: "https://moviebase22.netlify.app/"
         },
-        movieBaseText: {
-            type: "text",
-            title: "MovieBase.txt",
-            icon: File,
-        },
-        learnBlockText: {
-            type: "text",
-            title: "LearnBlock.txt",
-            icon: File,
-        },
-        kanbanFlowText: {
-            type: "text",
-            title: "KanbanFlow.txt",
-            icon: File,
-        },
         learnBlockHtml: {
             type: "browser",
             title: "Internet Explorer",
             icon: InternetExplorer,
             url: "https://learnblock.netlify.app/"
+        },
+        skills: {
+            type: "dir",
+            title: "Skills",
+            icon: Projects,
+        },
+        packageJson: {
+            type: "notepad",
+            title: "package.json",
+            icon: File,
+        },
+        movieBaseText: {
+            type: "notepad",
+            title: "MovieBase.txt",
+            icon: File,
+        },
+        learnBlockText: {
+            type: "notepad",
+            title: "LearnBlock.txt",
+            icon: File,
+        },
+        kanbanFlowText: {
+            type: "notepad",
+            title: "KanbanFlow.txt",
+            icon: File,
         },
         minesweeper: {
             type: "minesweeper",
@@ -210,6 +220,13 @@ const Home = () => {
                 show: setupComplete
             },
             {
+                id: 5,
+                iconImg: Projects,
+                label: "Skills",
+                key: "skills",
+                show: setupComplete
+            },
+            {
                 id: 6,
                 iconImg: MineSweeper,
                 label: "Mine Sweeper",
@@ -249,7 +266,7 @@ const Home = () => {
                                                         <MineSweeperDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
                                                         dialog.type == "pdf" ?
                                                             <PdfViewer dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
-                                                            dialog.type == "text" ?
+                                                            dialog.type == "notepad" ?
                                                                 <NotepadDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> : <></>
                                 }
                             </DialogLayer>

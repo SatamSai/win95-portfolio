@@ -131,6 +131,20 @@ const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handl
                     subDirectories: {}
                 }
             }
+        },
+        skills: {
+            title: "Skills",
+            icon: Folder,
+            size: "80.05 MB",
+            subDirectories: {
+                packageJson: {
+                    title: "package.json",
+                    icon: File,
+                    size: "30 MB",
+                    action: () => handleOpenDialog("packageJson"),
+                    subDirectories: {}
+                }
+            }
         }
     })
 

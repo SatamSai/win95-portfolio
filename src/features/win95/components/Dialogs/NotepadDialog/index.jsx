@@ -7,9 +7,14 @@ const NotepadDialog = ({ dialog, handleSelectDialog, handleDialogAction, handleC
     const [textContent, setTextContent] = useState('');
 
     useEffect(() => {
-        const project = data.projects.find(proj => proj.key === dialog.key);
-        if (project) {
-            const projectText = `
+        if (dialog.key === "packageJson") {
+            const skillsTemplate = data.packageJson;
+            setTextContent(skillsTemplate.replace(/\\n/g, '\n'));;
+        }
+        else {
+            const project = data.projects.find(proj => proj.key === dialog.key);
+            if (project) {
+                const projectText = `
 ============================================================
                     ${project.name.toUpperCase()} ${project.version} README
 ============================================================
@@ -35,9 +40,10 @@ SUPPORT:
 ${project.support}
 ============================================================
             `;
-            setTextContent(projectText);
+                setTextContent(projectText);
+            }
         }
-    }, [dialog.title]);
+    }, [dialog]);
 
     return (
         <DraggableDialog
