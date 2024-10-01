@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DateTime, LeftContent, LogoWrapper, Option, OptionImg, OptionsGroup, Speaker, StartButton, StartOptions, StartOptionsContainer, Task, TaskBarContainer, TaskIcon, TaskTitle, Tasks, TasksContainer, Tools, WindowIcon, WindowsLogo } from './Toolbar.styles'
 import WindowIconUrl from '../../assets/windowIcon.png'
 import SpeakerUrl from '../../assets/speaker.png'
@@ -12,6 +12,17 @@ import Projects from '../../assets/CloseFolder.png'
 
 const TaskBar = ({ tasks, handleTaskBarItemClicked }) => {
     const [showStartOptions, setShowStartOptions] = useState(false)
+    const [timenow, setTimenow] = useState(null)
+
+    useEffect(() => {
+        setTimenow(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }))
+        const id = setInterval(() => {
+            setTimenow(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }))
+        }, 60000)
+
+        return () => clearInterval(id)
+    }, [])
+
     return (
         <TaskBarContainer>
             <LeftContent>
@@ -56,7 +67,7 @@ const TaskBar = ({ tasks, handleTaskBarItemClicked }) => {
             </LeftContent>
             <Tools>
                 <Speaker src={SpeakerUrl} />
-                <DateTime>06:33 PM</DateTime>
+                <DateTime>{timenow}</DateTime>
             </Tools>
         </TaskBarContainer>
     )

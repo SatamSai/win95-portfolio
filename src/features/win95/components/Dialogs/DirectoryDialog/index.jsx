@@ -122,12 +122,14 @@ const DirectoryDialog = ({ dialog, handleSelectDialog, handleDialogAction, handl
                     title: "Surreal Events",
                     icon: Folder,
                     size: "50.05 MB",
+                    action: () => handleOpenDialog("surrealProp"),
                     subDirectories: {}
                 },
                 decimal: {
                     title: "DPA",
                     icon: Folder,
                     size: "30 MB",
+                    action: () => handleOpenDialog("decimalProp"),
                     subDirectories: {}
                 }
             }

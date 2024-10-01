@@ -17,6 +17,7 @@ import BioDialog from '../components/Dialogs/BioDialog'
 import MineSweeperDialog from '../components/Dialogs/MineSweeperDialog'
 import PdfViewer from '../components/Dialogs/PdfViewer'
 import NotepadDialog from '../components/Dialogs/NotepadDialog'
+import PropertiesDialog from '../components/Dialogs/PropertiesDialog'
 const Home = () => {
 
 
@@ -95,6 +96,16 @@ const Home = () => {
             type: "notepad",
             title: "KanbanFlow.txt",
             icon: File,
+        },
+        decimalProp: {
+            type: "properties",
+            title: "Decimal Point Analytics",
+            icon: Projects,
+        },
+        surrealProp: {
+            type: "properties",
+            title: "Surreal Events",
+            icon: Projects,
         },
         minesweeper: {
             type: "minesweeper",
@@ -267,7 +278,9 @@ const Home = () => {
                                                         dialog.type == "pdf" ?
                                                             <PdfViewer dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
                                                             dialog.type == "notepad" ?
-                                                                <NotepadDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> : <></>
+                                                                <NotepadDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> :
+                                                                dialog.type == "properties" ?
+                                                                    <PropertiesDialog dialog={dialog} handleSelectDialog={handleSelectDialog} handleDialogAction={handleDialogAction} handleCloseDialog={handleCloseDialog} /> : <></>
                                 }
                             </DialogLayer>
                         )

@@ -54,7 +54,7 @@ ${project.support}
             handleCloseDialog={handleCloseDialog}
             showMenuBar={true}
             dialogDefaultDimensions={{
-                width: 550,
+                width: 600,
                 height: 400
             }}
         >

@@ -183,4 +183,6 @@ export const Speaker = styled.img`
 
 export const DateTime = styled.div`
     font-size: 12px;
+    text-transform: uppercase;
+    width: 50px;
 `
